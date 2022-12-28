@@ -12,8 +12,11 @@ import { ColorSchemeName, Pressable } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
+import ChatScreen from '../screens/ChatScreen';
+import LoginScreen from '../screens/LoginScreen';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
+import RegisterScreen from '../screens/Register';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
@@ -38,7 +41,10 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name="Login" component={LoginScreen} options={{ title: "Login" }} />
+      <Stack.Screen name="Register" component={RegisterScreen} options={{ title: "Register" }} />
+      <Stack.Screen name="Chat" component={ChatScreen} options={{ title: "Chat", headerTitleAlign: "center" }} />
+      {/* <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} /> */}
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
@@ -46,6 +52,8 @@ function RootNavigator() {
     </Stack.Navigator>
   );
 }
+
+
 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.

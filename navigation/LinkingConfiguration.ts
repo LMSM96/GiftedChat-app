@@ -13,6 +13,9 @@ const linking: LinkingOptions<RootStackParamList> = {
   prefixes: [Linking.createURL('/')],
   config: {
     screens: {
+      Login: 'login',
+      Register: 'register',
+      Chat: 'chat',
       Root: {
         screens: {
           TabOne: {
